@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cerca Film - OMDb</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark text-light">
+
+  <div class="container py-5">
+    <h1 class="text-center mb-4 display-4">🎬 Cerca un Film</h1>
+
+    <!-- Search Bar and Filters -->
+    <div class="row mb-4">
+      <div class="col-md-4">
+        <div class="input-group input-group-lg shadow-lg">
+          <input type="text" id="searchInput" class="form-control border-0 rounded-start" placeholder="Scrivi il titolo del film...">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <select id="categoryFilter" class="form-select form-select-lg shadow-lg">
+          <option value="">Seleziona Categoria</option>
+          <option value="action">Azione</option>
+          <option value="comedy">Commedia</option>
+          <option value="drama">Drammatico</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="horror">Horror</option>
+          <option value="science fiction">Fantascienza</option>
+          <option value="thriller">Thriller</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <select id="yearFilter" class="form-select form-select-lg shadow-lg">
+          <option value="">Qualsiasi anno</option>
+          <!-- Gli anni saranno caricati dinamicamente -->
+        </select>
+      </div>
+    </div>
+
+    <!-- Search Button -->
+    <div class="text-center mb-4">
+      <button id="searchBtn" class="btn btn-primary btn-lg shadow-lg">🔍 Cerca</button>
+    </div>
+
+    <!-- Movie Results -->
+    <div id="movieList" class="row gy-4"></div>
+
+    <!-- Pagination -->
+    <nav id="pagination" aria-label="Page navigation example" class="mt-5">
+      <ul class="pagination justify-content-center"></ul>
+    </nav>
+  </div>
+
+  <!-- Modal for Movie Details -->
+  <div class="modal fade" id="movieModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-dark text-light border-light">
+        <div class="modal-header border-light">
+          <h5 class="modal-title" id="movieTitle"></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Chiudi"></button>
+        </div>
+        <div class="modal-body d-flex flex-column flex-md-row align-items-start">
+          <img id="moviePoster" class="img-fluid rounded me-md-4 mb-3 mb-md-0" style="max-width: 250px;">
+          <div>
+            <p><strong>Anno:</strong> <span id="movieYear"></span></p>
+            <p id="moviePlot"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>
