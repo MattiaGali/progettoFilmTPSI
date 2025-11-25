@@ -3,45 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cerca Film - OMDb</title>
+  <title>FilmFinder</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body class="bg-dark text-light">
+  <!-- Sfondo Hero -->
+  <div class="hero">
+    <div class="overlay"></div>
+    <div class="container py-5 text-center hero-content">
+      <h1 class="display-3 mb-4">🎬 FilmFinder</h1>
+      <p class="lead mb-4 text-light">Cerca il tuo film preferito e scopri tutti i dettagli</p>
 
-  <div class="container py-5">
-    <h1 class="text-center mb-4 display-4">🎬 FilmHunt</h1>
-
-    <!-- Search Bar + Year -->
-    <div class="row mb-4 justify-content-center">
-      <div class="col-md-5 mb-3">
-        <div class="input-group input-group-lg shadow-lg">
-          <input type="text" id="searchInput" class="form-control border-0 rounded-start" placeholder="Scrivi il titolo del film...">
+      <!-- Search + Year -->
+      <div class="row justify-content-center mb-4 g-3">
+        <div class="col-md-5">
+          <div class="input-group input-group-lg shadow-lg search-box">
+            <input type="text" id="searchInput" class="form-control" placeholder="Scrivi il titolo del film...">
+            <button id="searchBtn" class="btn btn-gradient">🔍 Cerca</button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <select id="yearFilter" class="form-select form-select-lg shadow-lg">
+            <option value="">Qualsiasi anno</option>
+          </select>
         </div>
       </div>
 
-      <div class="col-md-3 mb-3">
-        <select id="yearFilter" class="form-select form-select-lg shadow-lg">
-          <option value="">Qualsiasi anno</option>
-        </select>
-      </div>
+      <!-- Movie List -->
+      <div id="movieList" class="row gy-4"></div>
+
+      <!-- Pagination -->
+      <nav id="pagination" class="mt-5"></nav>
     </div>
-
-    <div class="text-center mb-4">
-      <button id="searchBtn" class="btn btn-primary btn-lg shadow-lg">🔍 Cerca</button>
-    </div>
-
-    <div id="movieList" class="row gy-4"></div>
-
-    <nav id="pagination" class="mt-5">
-      <ul class="pagination justify-content-center"></ul>
-    </nav>
   </div>
 
-  <!-- Modal -->
+  <!-- Modal Movie Details -->
   <div class="modal fade" id="movieModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content bg-dark text-light border-light">
@@ -50,7 +55,7 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body d-flex flex-column flex-md-row align-items-start">
-          <img id="moviePoster" class="img-fluid rounded me-md-4 mb-3" style="max-width: 250px;">
+          <img id="moviePoster" class="img-fluid rounded me-md-4 mb-3 mb-md-0" style="max-width: 250px;">
           <div>
             <p><strong>Anno:</strong> <span id="movieYear"></span></p>
             <p id="moviePlot"></p>
@@ -60,6 +65,7 @@
     </div>
   </div>
 
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
