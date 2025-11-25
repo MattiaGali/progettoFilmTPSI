@@ -12,16 +12,8 @@ body {
   transform: scale(1.05);
 }
 
-.pagination {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.pagination .page-item {
-  cursor: pointer;
-  border-radius: 50%;
+.card-body {
+  background-color: #343a40;
 }
 
 .pagination .page-link {
@@ -33,21 +25,10 @@ body {
 
 .pagination .page-link:hover {
   background-color: #00bcd4;
-  color: #fff;
   border-color: #00bcd4;
 }
 
-.pagination .page-item.active .page-link {
+.pagination .active .page-link {
   background-color: #6610f2;
-  color: white;
   border-color: #6610f2;
-}
-
-.pagination-lg .page-link {
-  font-size: 1.2rem;
-}
-
-.pagination .page-link:focus {
-  outline: none;
-  box-shadow: none;
 }
