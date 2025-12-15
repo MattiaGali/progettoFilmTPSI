@@ -111,7 +111,7 @@ async function showMovieDetails(id) {
     const res = await fetch(`${API_URL}?apikey=${API_KEY}&i=${id}&plot=full`);
     const movie = await res.json();
 
-    document.getElementById("movieRating").textContent = movie.Rating.Value;
+    document.getElementById("movieRating").textContent = movie.Ratings.Value;
     document.getElementById("movieTitle").textContent = movie.Title;
     document.getElementById("movieYear").textContent = movie.Year;
     document.getElementById("moviePlot").textContent = movie.Plot;
@@ -170,4 +170,5 @@ function changePage(page) {
   else currentPage = page;
   searchMovies();
 }
+
 
